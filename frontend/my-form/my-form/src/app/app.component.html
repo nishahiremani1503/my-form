@@ -1,0 +1,11 @@
+<nav>
+  <a routerLink="/signup" routerLinkActive="active">Signup</a>
+  <a routerLink="/login" routerLinkActive="active">Login</a>
+  <ng-container *ngIf="jwtToken">
+    <a routerLink="/user-list" routerLinkActive="active">User List</a>
+  </ng-container>
+  <ng-container *ngIf="jwtToken">
+    <div (click)="logout()" style="cursor: pointer;">Logout</div>
+  </ng-container>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,27 @@
+<div>
+    <h2>Signup</h2>
+    <form (ngSubmit)="signup()">
+      <label for="first_name">First Name:</label>
+      <input id="first_name" [(ngModel)]="user.first_name" name="first_name" required><br>
+  
+      <label for="last_name">Last Name:</label>
+      <input id="last_name" [(ngModel)]="user.last_name" name="last_name"><br>
+  
+      <label for="email">Email:</label>
+      <input id="email" type="email" [(ngModel)]="user.email" name="email" required><br>
+  
+      <label for="password">Password:</label>
+      <input id="password" type="password" [(ngModel)]="user.password" name="password" required><br>
+  
+      <label for="mobile">Mobile:</label>
+      <input id="mobile" [(ngModel)]="user.mobile" name="mobile"><br>
+  
+      <label for="role">Role:</label>
+      <select id="role" [(ngModel)]="user.role" name="role">
+        <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+      </select><br>
+  
+      <button type="submit">Signup</button>
+    </form>
+  </div>
+  

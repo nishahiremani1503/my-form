@@ -1,0 +1,10 @@
+<div>
+    <h2>User List</h2>
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.first_name }} {{ user.last_name }} - {{ user.email }} - {{ user.role }}
+      </li>
+    </ul><br>
+    <button (click)="loadUsers()">Refresh List</button>
+  </div>
+  
