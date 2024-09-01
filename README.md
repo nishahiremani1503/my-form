@@ -7,5 +7,6 @@ frontend code:
 
 backend code: 
  >> cd .\backend
- >> npm install 
+ >> npm install
+> > 
  >> npm run devstart
