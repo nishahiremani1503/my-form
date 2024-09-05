@@ -26,7 +26,7 @@ export class SignupComponent {
         console.log('User registered successfully', response);
         // Navigate to user list or login after successful registration
         localStorage.setItem("jwt", response.token)
-        this.router.navigate(['/user-list']);
+        this.router.navigate(['/login']);
       },
       error => {
         console.error('Error registering user', error);
