@@ -19,7 +19,7 @@
       <option value="">All Roles</option>
       <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
     </select>
-    <button (click)="loadUsers()">Refresh List</button>
+    <button (click)="refreshList()" class="refreshbutton">Refresh List</button>
   </div>
 
   <!-- User Table -->

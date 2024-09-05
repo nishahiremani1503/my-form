@@ -40,12 +40,6 @@ export class UserListComponent implements OnInit {
   }
 
   filterUsers() {
-    console.log('Filtering users with', { 
-      searchTerm: this.searchTerm, 
-      emailSearchTerm: this.emailSearchTerm, 
-      selectedRole: this.selectedRole 
-    });
-
     this.filteredUsers = this.users.filter(user => {
       const fullName = `${user.first_name} ${user.last_name}`.toLowerCase();
       const isNameMatch = fullName.includes(this.searchTerm.toLowerCase());
@@ -54,7 +48,16 @@ export class UserListComponent implements OnInit {
 
       return isNameMatch && isEmailMatch && isRoleMatch;
     });
+  }
 
-    console.log('Filtered users:', this.filteredUsers);
+  // New method to reset filters and refresh the user list
+  refreshList() {
+    // Reset all filters
+    this.searchTerm = '';
+    this.emailSearchTerm = '';
+    this.selectedRole = '';
+
+    // Reload the user list
+    this.loadUsers();
   }
 }
