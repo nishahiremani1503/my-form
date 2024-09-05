@@ -8,6 +8,11 @@ import { UserService } from '../user.service';
 })
 export class UserListComponent implements OnInit {
   users: any[] = [];
+  filteredUsers: any[] = [];
+  roles: string[] = [];
+  searchTerm: string = '';
+  emailSearchTerm: string = '';
+  selectedRole: string = '';
 
   constructor(private userService: UserService) {}
 
@@ -19,10 +24,37 @@ export class UserListComponent implements OnInit {
     this.userService.getUsers().subscribe(
       response => {
         this.users = response;
+        this.filteredUsers = [...this.users];
+        this.extractRoles();
+        this.filterUsers();
       },
       error => {
         console.error('Error fetching users', error);
       }
     );
+  }
+
+  extractRoles() {
+    const allRoles = this.users.map(user => user.role);
+    this.roles = Array.from(new Set(allRoles));
+  }
+
+  filterUsers() {
+    console.log('Filtering users with', { 
+      searchTerm: this.searchTerm, 
+      emailSearchTerm: this.emailSearchTerm, 
+      selectedRole: this.selectedRole 
+    });
+
+    this.filteredUsers = this.users.filter(user => {
+      const fullName = `${user.first_name} ${user.last_name}`.toLowerCase();
+      const isNameMatch = fullName.includes(this.searchTerm.toLowerCase());
+      const isEmailMatch = user.email.toLowerCase().includes(this.emailSearchTerm.toLowerCase());
+      const isRoleMatch = this.selectedRole === '' || user.role === this.selectedRole;
+
+      return isNameMatch && isEmailMatch && isRoleMatch;
+    });
+
+    console.log('Filtered users:', this.filteredUsers);
   }
 }

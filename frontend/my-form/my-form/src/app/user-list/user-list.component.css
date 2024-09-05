@@ -1,0 +1,28 @@
+/* Styling for user list table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  .controls {
+    margin-bottom: 15px;
+  }
+  
+  .controls input, .controls select {
+    padding: 8px;
+    margin-right: 10px;
+  }
+  

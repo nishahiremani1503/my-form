@@ -1,10 +1,42 @@
 <div>
-    <h2>User List</h2>
-    <ul>
-      <li *ngFor="let user of users">
-        {{ user.first_name }} {{ user.last_name }} - {{ user.email }} - {{ user.role }}
-      </li>
-    </ul><br>
+  <h2>User List</h2>
+
+  <!-- Search and Filter -->
+  <div class="controls">
+    <input 
+      type="text" 
+      placeholder="Search by name" 
+      [(ngModel)]="searchTerm" 
+      (input)="filterUsers()"/>
+    <input 
+      type="text" 
+      placeholder="Search by email" 
+      [(ngModel)]="emailSearchTerm" 
+      (input)="filterUsers()"/>
+    <select 
+      [(ngModel)]="selectedRole" 
+      (change)="filterUsers()">
+      <option value="">All Roles</option>
+      <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+    </select>
     <button (click)="loadUsers()">Refresh List</button>
   </div>
-  
+
+  <!-- User Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUsers">
+        <td>{{ user.first_name }} {{ user.last_name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

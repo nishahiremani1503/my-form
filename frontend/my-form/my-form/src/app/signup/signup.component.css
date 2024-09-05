@@ -1,0 +1,70 @@
+/* Style for the form container */
+div {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin: 10px 0 5px;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    width: 100%; /* Adjusted width to fit the container */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+select:focus {
+    border-color: green;
+    outline: none;
+}
+
+button[type="submit"],
+button:last-of-type {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: blue;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px; /* Space between buttons */
+}
+
+button[type="submit"]:hover,
+button:last-of-type:hover {
+    background-color: #0056b3;
+}
+
+button:last-of-type {
+    margin-top: 20px; /* Space above the secondary button */
+}
