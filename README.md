@@ -1,5 +1,5 @@
 run the backend and frontend code 
-npm init
+>> npm init
 frontend code: 
 >> cd .\my-form\my-form 
 >> ng serve
